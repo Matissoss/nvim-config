@@ -69,7 +69,6 @@ require('lazy').setup({
 		dependencies = {
 			"nvim-lua/plenary.nvim"
 		},
-		"nvim-telescope/telescope-project.nvim"
 
 	},
 	-- Lualine
