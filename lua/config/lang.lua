@@ -1,15 +1,6 @@
 require('mason').setup()
 
--- Ensure That Lsp's are installed
-require('mason-lspconfig').setup({
-	ensure_installed = {"rust_analyzer", "svelte", "ts_ls", "omnisharp", "html", "cssls", "lua_ls", "rnix"}
-})
-
--- 
--- Autocomplete
---
-
-local cmp = require'cmp'
+local cmp = require('cmp')
 
 cmp.setup({
   snippet = {
@@ -22,7 +13,7 @@ cmp.setup({
     ['<C-	>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
     ['<C-y>'] = cmp.config.disable,
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-<CR>>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -59,44 +50,19 @@ cmp.setup({
 -- 
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
--- Config for HTML
-require('lspconfig').html.setup {
-  capabilities = capabilities,
+local lspconfig = require('lspconfig')
+
+local lsps = {
+	"html",
+	"cssls",
+	"ts_ls",
+	"rust_analyzer",
+	"lua_ls",
 }
 
--- Config for CSS
-require('lspconfig').cssls.setup {
-  capabilities = capabilities,
-}
+for _, lsp in ipairs(lsps) do
+    lspconfig[lsp].setup {
+        capabilities = capabilities
+    }
+end
 
--- Config for JS/TS
-require('lspconfig').ts_ls.setup {
-  capabilities = capabilities,
-}
-
--- Config for Nix
-require('lspconfig').rnix.setup{
-	capabilities = capabilities,
-}
--- Config for C# | .NET
-require('lspconfig').csharp_ls.setup{
-	capabilities =capabilities
-}
-
---Config for Rust 
-require('lspconfig').rust_analyzer.setup{
-	capabilities = capabilities
-}
-
---Config for Svelte 
-require('lspconfig').svelte.setup{
-	capabilities = capabilities
-}
---Config for TOML
-require('lspconfig').dprint.setup{
-	capabilities = capabilities
-}
---Config for C 
-require('lspconfig').clangd.setup{
-	capabilities = capabilities
-}
