@@ -20,9 +20,11 @@ vim.g.maplocalleader = "\\"
 require('lazy').setup({
 	-- LSP pkgs
 	{
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig"
+		{
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"neovim/nvim-lspconfig"
+		},
 	},
 	-- Autocomplete
 	{
@@ -32,7 +34,7 @@ require('lazy').setup({
 				"hrsh7th/cmp-nvim-lsp",
 				"hrsh7th/cmp-buffer",
 				"hrsh7th/cmp-path",
-				"hrsh7th/cmp-cmdline",
+				--"hrsh7th/cmp-cmdline",
 				"L3MON4D3/LuaSnip"
 			},
 			config = function()
@@ -51,46 +53,27 @@ require('lazy').setup({
 				})
 			end
 		},
-		-- CMD Autocomplete
-		{
-			"gelguy/wilder.nvim"
-		}
-	},
-
-	-- Treesitter
-	{
-		"nvim-treesitter/nvim-treesitter",
-		"p00f/nvim-ts-rainbow"
 	},
 	-- Telescope
 	{
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
-		dependencies = {
-			"nvim-lua/plenary.nvim"
+		{
+			"nvim-telescope/telescope.nvim",
+			tag = "0.1.8",
+			dependencies = {
+				"nvim-lua/plenary.nvim"
+			},
 		},
-
-	},
-	-- Lualine
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons"
+		{
+			"TimUntersberger/neofs"
 		}
 	},
 	-- Blankline indentation
 	{
-		"lukas-reineke/indent-blankline.nvim"
+		"lukas-reineke/indent-blankline.nvim",
+		"ya2s/nvim-cursorline"
 	},
 	-- Visual things
 	{
-		-- Dashboard
-		{
-			"goolord/alpha-nvim",
-			requires = {
-				"nvim-tree/nvim-web-devicons"
-			}
-		},
 		-- Transparency
 		{
 			"xiyaowong/transparent.nvim"
@@ -102,9 +85,17 @@ require('lazy').setup({
 				"neanias/everforest-nvim"
 			},
 
-		}
+		},
+		{
+			"tamton-aquib/staline.nvim"
+		},
 	},
-
+	{
+		{
+        		'2kabhishek/termim.nvim',
+			cmd = { 'Fterm', 'FTerm', 'Sterm', 'STerm', 'Vterm', 'VTerm' },
+		},
+	},
 	-- Language Specific
 	{
 		-- Rust

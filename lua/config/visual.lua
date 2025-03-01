@@ -1,72 +1,58 @@
--- Lualine
 require("ibl").setup()
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = auto,
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
-    ignore_focus = {},
-    always_divide_middle = true,
-    globalstatus = false,
-    refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
-    }
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {''},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}--
-}
-
--- Dashboard 
-local alpha = require('alpha')
-local dashboard = require('alpha.themes.dashboard')
-
-dashboard.section.header.val = {
-	[[#  # #### #    #    ####   #    # #### #### #    ###   #]],
-	[[#  # #    #    #    #  #   #    # #  # #  # #    #  #  #]],
-	[[#### #### #    #    #  #   # ## # #  # ###  #    #  #  #]],
-	[[#  # #    #    #    #  #   ##  ## #  # #  # #    #  #   ]],
-	[[#  # #### #### #### ####   #    # #### #  # #### ###   #]],
-}
-
-dashboard.section.buttons.val = {
-	dashboard.button("f", "   > Edit File", ":Telescope find_files<CR>"),
-  	dashboard.button("q", "   > Exit", ":qa<CR>"),
-}
-
-alpha.setup(dashboard.opts)
-
--- CMD Autocomplete
-require('wilder').setup({modes = {':', '/', '?'}})
-local wilder = require('wilder')
-
-wilder.set_option('renderer', wilder.popupmenu_renderer({
-  pumblend = 20,
-}))
-
 require('transparent').setup()
---require('transparent').clear_prefix('lualine')
+require('staline').setup {
+    defaults = {
+        expand_null_ls = false,
+        full_path       = false,
+        line_column     = "[%l/%L] :%c 並%p%% ",
+	branch_symbol = "",
+        fg              = "#ffffff",
+        inactive_bgcolor = "none",
+        true_colors     = false,
+	font_active     = "bold",
+    },
+    mode_colors = {
+        n = "#e67e80",
+        i = "#7fbbb3",
+	V = "#dbbc7f",
+        c = "#a7c080",
+        v = "#d699b6",   -- etc..
+    },
+    mode_icons = {
+        n = "nor",
+        i = "ins",
+	V = "vli",
+        c = "com",
+        v = "vis",   -- etc..
+    },
+    sections = {
+        left = { '-mode','branch' },
+        mid  = { 'lsp' },
+        right = { 'file_name' },
+    },
+    lsp_symbols = {
+        Error="E",
+        Info="I",
+        Warn="W",
+        Hint="H",
+    },
+    file_icons = {
+	typescript='' , css='' , scss='' , javascript='' , javascriptreact='' , html='' ,
+        python='', java='' , markdown='' , sh='',zsh='',
+        vim='', lua='', haskell='', conf='', ruby='', txt='',
+        rust='', cpp='', c='', go='',
+    }
+}
 
+require('nvim-cursorline').setup {
+  cursorline = {
+    enable = true,
+    timeout = 1000,
+    number = false,
+  },
+  cursorword = {
+    enable = true,
+    min_length = 3,
+    hl = { underline = true },
+  }
+}
