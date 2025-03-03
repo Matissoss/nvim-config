@@ -26,69 +26,26 @@ require('lazy').setup({
 			"neovim/nvim-lspconfig"
 		},
 	},
-	-- Autocomplete
-	{
-		{
-			"hrsh7th/nvim-cmp",
-			dependencies = {
-				"hrsh7th/cmp-nvim-lsp",
-				"hrsh7th/cmp-buffer",
-				"hrsh7th/cmp-path",
-				--"hrsh7th/cmp-cmdline",
-				"L3MON4D3/LuaSnip"
-			},
-			config = function()
-				local cmp = require'cmp'
-				cmp.setup({
-					snippet = {
-						expand = function(args)
-						require'luasnip'.lsp_expand(args.body)
-						end
-					},
-        			sources =
-					cmp.config.sources({
-        					{ name = 'nvim_lsp' },
-        					{ name = 'buffer' },
-        				})
-				})
-			end
-		},
-	},
 	-- Telescope
 	{
 		{
 			"nvim-telescope/telescope.nvim",
 			tag = "0.1.8",
-			dependencies = {
-				"nvim-lua/plenary.nvim"
-			},
 		},
-		{
-			"TimUntersberger/neofs"
-		}
 	},
-	-- Blankline indentation
 	{
-		"lukas-reineke/indent-blankline.nvim",
 		"ya2s/nvim-cursorline"
 	},
 	-- Visual things
 	{
-		-- Transparency
-		{
-			"xiyaowong/transparent.nvim"
-		},
 		-- Color schemes 
 		{
-			-- Everforest scheme - my favourite
-			{
-				"neanias/everforest-nvim"
-			},
-
+			"ashen-org/ashen.nvim"
 		},
 		{
-			"tamton-aquib/staline.nvim"
-		},
+			"tamton-aquib/staline.nvim",
+			"mong8se/actually.nvim",
+		}
 	},
 	{
 		{
@@ -109,4 +66,5 @@ require('lazy').setup({
 			}
 		}
 	}
-})
+}
+)
