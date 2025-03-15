@@ -5,18 +5,18 @@ require('staline').setup {
         line_column     = "[%l/%L] :%c 並%p%% ",
 	branch_symbol = "",
 	mod_symbol = "+",
-        fg              = "#ffffff",
+        fg              = "#FFFFFF",
         inactive_bgcolor = "none",
         true_colors     = false,
 	font_active     = "bold",
     },
     mode_colors = {
-        n = "#B14242",
-        i = "#4A8B8B",
-	V = "#E49A44",
-        c = "#D87C4A",
-        v = "#A7A7A7",
-	R = "#b4b4b4"
+        n = "#B157D0",
+        i = "#C75147",
+	V = "#9BD85F",
+        c = "#94D3E6",
+        v = "#9BD85F",
+	R = "#FDA73C"
     },
     mode_icons = {
         n = "nor",

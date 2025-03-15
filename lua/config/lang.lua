@@ -1,7 +1,7 @@
 require('mason').setup()
 
 require'lspconfig'.rust_analyzer.setup{}
-require'lspconfig'.lua_ls.setup{}
+--require'lspconfig'.lua_ls.setup{}
 
 -- Fix for rust_analyzer error -32802
 for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do

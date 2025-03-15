@@ -38,14 +38,7 @@ require('lazy').setup({
 	},
 	-- Visual things
 	{
-		-- Color schemes 
-		{
-			"ashen-org/ashen.nvim"
-		},
-		{
-			"tamton-aquib/staline.nvim",
-			"mong8se/actually.nvim",
-		}
+		"tamton-aquib/staline.nvim",
 	},
 	{
 		{
@@ -53,18 +46,5 @@ require('lazy').setup({
 			cmd = { 'Fterm', 'FTerm', 'Sterm', 'STerm', 'Vterm', 'VTerm' },
 		},
 	},
-	-- Language Specific
-	{
-		-- Rust
-		{
-			{
-				'saecki/crates.nvim',
-				tag = 'stable',
-				config = function()
-        				require('crates').setup()
-				end,
-			}
-		}
-	}
 }
 )
