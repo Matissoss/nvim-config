@@ -1,34 +1,36 @@
 require('staline').setup {
     defaults = {
-        expand_null_ls = false,
-        full_path       = false,
-        line_column     = "[%l/%L] :%c 並%p%% ",
-	branch_symbol = "",
-	mod_symbol = "+",
-        fg              = "#FFFFFF",
-        inactive_bgcolor = "none",
+        expand_null_ls	= false,
+        full_path	= false,
+        line_column	= "[%l/%L] %t",
+	branch_symbol	= "",
+	mod_symbol	= "+",
+        fg		= "#818181",
+        inactive_bgcolor= "none",
         true_colors     = false,
 	font_active     = "bold",
     },
     mode_colors = {
-        n = "#B157D0",
-        i = "#C75147",
-	V = "#9BD85F",
-        c = "#94D3E6",
-        v = "#9BD85F",
-	R = "#FDA73C"
+	n = "#101010",
+        i = "#101010",
+	V = "#101010",
+        c = "#101010",
+        v = "#101010",
+	R = "#101010"
     },
     mode_icons = {
-        n = "nor",
-        i = "ins",
-	V = "vli",
-        c = "com",
-        v = "vis",
-	R = "rep",
+        n = "n",
+        i = "i",
+	V = "V",
+        c = "c",
+        v = "v",
+	R = "r",
+	T = "t"
 	-- etc..
     },
     sections = {
-        left = { '-mode','branch' },
+	-- branch
+        left = { '-mode' },
         mid  = { 'lsp' },
         right = { 'file_name' },
     },
@@ -75,4 +77,3 @@ require('nvim-cursorline').setup {
     hl = { underline = true },
   }
 }
-

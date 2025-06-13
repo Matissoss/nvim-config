@@ -16,10 +16,9 @@ This config consists of 7 (still 7 if you include dependencies) packages:
 - `williamboman/mason-lspconfig.nvim`,
 - `neovim/lsp-config`
 
-## Visual pkgs 
-
-- `tamton-aquib/staline.nvim`
-
-## QOL PKGs
+## Good to have
 - `nvim-telescope/telescope.nvim`,
+
+## Less essential
 - `ya2s/nvim-cursorline`
+- `tamton-aquib/staline.nvim`

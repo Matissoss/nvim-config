@@ -29,22 +29,17 @@ require('lazy').setup({
 	-- Telescope
 	{
 		{
+			"nvim-lua/plenary.nvim"
+		},
+		{
 			"nvim-telescope/telescope.nvim",
 			tag = "0.1.8",
 		},
 	},
-	{
-		"ya2s/nvim-cursorline"
-	},
-	-- Visual things
+	-- less essential, but cool to have
 	{
 		"tamton-aquib/staline.nvim",
-	},
-	{
-		{
-        		'2kabhishek/termim.nvim',
-			cmd = { 'Fterm', 'FTerm', 'Sterm', 'STerm', 'Vterm', 'VTerm' },
-		},
+		"ya2s/nvim-cursorline",
 	},
 }
 )
